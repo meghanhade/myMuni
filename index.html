@@ -36,5 +36,22 @@ tions&a=<agency_tag>&stopId=<stop id>&routeTag=<route tag>
    margin: 1px;
    color: white;
  }
-    </style
+    </style type>
 </head>
+
+<body>
+<div id="chart" class="chart">
+</div>
+
+<script>
+d3.xml("values.xml", "application/xml", function(xml) {
+  d3.select("#chart")
+    .selectAll("div")
+    .data(xml.documentElement.getElementsByTagName("value"))
+    .enter().append("div")
+      .style("width", function(d) { return d.textContent * 10 + "px"; })
+      .text(function(d) { return d.textContent; });
+});
+ 
+</script>
+</body>
