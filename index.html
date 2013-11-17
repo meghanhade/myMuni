@@ -1,12 +1,40 @@
-<body copyright="All data copyright San Francisco Muni 2013.">
-<predictions agencyTitle="SF Muni" routeTitle="N-Judah" routeTag="N" stopTitle="Judah St & 28th Ave" stopTag="5205">
-<direction title="Outbound to Ocean Beach via Downtown">
-<prediction epochTime="1384720209210" seconds="670" minutes="11" isDeparture="false" dirTag="N__OB1" vehicle="1528" vehiclesInConsist="2" block="9705" tripTag="5841077"/>
-<prediction epochTime="1384720541595" seconds="1003" minutes="16" isDeparture="false" dirTag="N__OB1" vehicle="1462" vehiclesInConsist="2" block="9707" tripTag="5841078"/>
-<prediction epochTime="1384721936760" seconds="2398" minutes="39" isDeparture="false" affectedByLayover="true" dirTag="N__OB1" vehicle="1518" vehiclesInConsist="2" block="9709" tripTag="5841080"/>
-<prediction epochTime="1384722644760" seconds="3106" minutes="51" isDeparture="false" affectedByLayover="true" dirTag="N__OB1" vehicle="1419" vehiclesInConsist="2" block="9706" tripTag="5841081"/>
-<prediction epochTime="1384723364760" seconds="3826" minutes="63" isDeparture="false" affectedByLayover="true" dirTag="N__OB1" vehicle="1489" vehiclesInConsist="2" block="9711" tripTag="5841082"/>
-</direction>
-<message text="No Elevator at Church Station"/>
-</predictions>
-</body>
+//http://webservices.nextbus.com/service/publicXMLFeed?command=predic
+tions&a=<agency_tag>&stopId=<stop id>&routeTag=<route tag>
+  
+  //http://webservices.nextbus.com/service/publicXMLFeed?command=predic
+  tions&a=sf-muni&stopId=16038&routeTag=9
+
+//agency tag: sf-muni
+//stop id:
+//routeTitle(string)
+//stopTitle(string)
+//<direction> dirTag(string)
+
+// 9: 9, stopId:16038 
+
+//9L: 9L
+
+//27: 27
+
+//work:
+
+//9south: 9
+
+//9L south: 9L
+
+//49 south: 49
+
+<head>
+   <title>D3.xml Example</title>
+   <script type="text/javascript" src="http://mbostock.github.com/d3/d3.v2.js"></script>
+   <style type="text/css">
+.chart div {
+   font: 10px sans-serif;
+   background-color: steelblue;
+   text-align: right;
+   padding: 3px;
+   margin: 1px;
+   color: white;
+ }
+    </style
+</head>
