@@ -1,61 +1,39 @@
 <head>
    <title>myBus arrivals</title>
-   <script type="text/javascript" src="http://mbostock.github.com/d3/d3.v2.js"></script>
-   <style type="text/css">
-.chart div {
-   font: 10px sans-serif;
-   background-color: steelblue;
-   text-align: right;
-   padding: 3px;
-   margin: 1px;
-   color: white;
- }
-    </style type>
 </head>
 
-//http://webservices.nextbus.com/service/publicXMLFeed?command=predic
-tions&a=<agency_tag>&stopId=<stop id>&routeTag=<route tag>
-  
-//http://webservices.nextbus.com/service/publicXMLFeed?command=predic
-  tions&a=sf-muni&stopId=16038&routeTag=9
 
-//stopId lookup: http://transit.511.org/schedules/realtimedepartures.aspx#onlystopid=16038
-
-//agency tag: sf-muni
-//stop id:
-//routeTitle(string)
-//stopTitle(string)
-//<direction> dirTag(string)
-
-// 9: 9, stopId:16038 
-
-//9L: 9L, stopId:16038
-
-//27: 27, 13749
-
-//work:
-
-//9south: 9
-
-//9L south: 9L
-
-//49 south: 49
-
-
-
+<!DOCTYPE html>
+<html>
 <body>
-<div id="chart" class="chart">
-</div>
+  <h1>MUNI nextbus API information:</h1>
+<p1>  
+http://webservices.nextbus.com/service/publicXMLFeed?command=predic
+  tions&a=<agency_tag>&stopId=<stop id>&routeTag=<route tag><br>
 
-<script>
-d3.xml("values.xml", "application/xml", function(xml) {
-  d3.select("#chart")
-    .selectAll("div")
-    .data(xml.documentElement.getElementsByTagName("value"))
-    .enter().append("div")
-      .style("width", function(d) { return d.textContent * 10 + "px"; })
-      .text(function(d) { return d.textContent; });
-});
- 
-</script>
+http://webservices.nextbus.com/service/publicXMLFeed?command=predic
+    tions&a=sf-muni&stopId=16038&routeTag=9<br>
+<br>
+<a href="http://transit.511.org/schedules/realtimedepartures.aspx#onlystopid=16038">stopId lookup</a> <br>
+<br>
+agency tag: sf-muni<br>
+stop id:<br>
+routeTitle(string)<br>
+stopTitle(string)<br>
+<direction> dirTag(string)<br>
+<br>
+9: 9, stopId:16038<br> 
+9L: 9L, stopId:16038<br>
+27: 27, 13749<br>
+<br>
+  //work:<br>
+<br>
+9south: 9<br>
+9L south: 9L<br>
+49 south: 49<br>
+
 </body>
+</html>
+
+
+
