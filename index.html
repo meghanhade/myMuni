@@ -36,9 +36,13 @@ d3.xml(url, function(xml) {
         d3.select(busLine).text(minutes)}
   });
 } 
+function refreshPredictions(){
 fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9", "#nine")
 fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9L", "#nineL")  
-fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=13749&routeTag=27", "#twentySeven")
+fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=13749&routeTag=27", "#twentySeven")}
+
+refreshPredictions()
+window.setInterval(refreshPredictions,15000);
   </script>
   </p>
   9:<p id="nine"></p>
