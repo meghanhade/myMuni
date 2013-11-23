@@ -1,43 +1,52 @@
-<head>
-   <title>myBus arrivals</title>
-</head>
+<!-- MUNI nextbus API information:
+  
+Format:
+http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=<agency_tag>&stopId=<stop id>&routeTag=<route tag>
 
+agency tag: sf-muni
+stop id: (look up here: href="http://transit.511.org/schedules/realtimedepartures.aspx#onlystopid=16038)
+routeTitle(string)
+stopTitle(string)
+<direction> dirTag(string)
+
+9 stopId:16038
+9L stopId:16038
+27 stopId:13749 -->
+
+<head>
+   <title>myMuni</title>
+   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
 
 <!DOCTYPE html>
 <html>
 
 <body>
-  <h1>MUNI nextbus API information:</h1>
-<p1>  
-Format:<br>
-http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=<agency_tag>&stopId=<stop id>&routeTag=<route tag><br>
-<br>
-<a href="http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9">9 Inbound</a> <br>
-<br>
-<a href="http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9L">9L Inbound</a> <br>
-<br>
-<a href="http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=13749&routeTag=27">27 Inbound</a> <br>
-<br>
-<a href="http://transit.511.org/schedules/realtimedepartures.aspx#onlystopid=16038">stopId lookup</a> <br>
-<br>
-agency tag: sf-muni<br>
-stop id:<br>
-routeTitle(string)<br>
-stopTitle(string)<br>
-<direction> dirTag(string)<br>
-<br>
-9: 9, stopId:16038<br> 
-9L: 9L, stopId:16038<br>
-27: 27, stopId:13749<br>
-<br>
-  //work:<br>
-<br>
-9south: 9<br>
-9L south: 9L<br>
-49 south: 49<br>
-
+  <p>
+  <script>
+function fetchPredictions(url, busLine){
+d3.xml(url, function(xml) {
+    var minutes =  d3.select(xml).selectAll("prediction")[0].map(function(prediction){
+     return d3.select(prediction).attr("minutes");
+    });
+      if (minutes.length===0){
+         d3.select(busLine).text("No busses running")
+      }
+      else{ 
+        d3.select(busLine).text(minutes)}
+  });
+} 
+fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9", "#nine")
+fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9L", "#nineL")  
+fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=13749&routeTag=27", "#twentySeven")
+  </script>
+  </p>
+  9:<p id="nine"></p>
+  9L:<p id="nineL"></p>
+  27:<p id="twentySeven"></p>
 </body>
 </html>
 
 
-
+<!-- -setInterval
+-set up css for bus name, predictions -->
