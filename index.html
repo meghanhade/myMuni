@@ -16,6 +16,16 @@ stopTitle(string)
 <head>
    <title>myMuni</title>
    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+   <style>
+   hr {color:sienna;}
+   p {margin-left:20px;}
+   body {color:white; font-size:140px; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; background-color:#000000; white-space: nowrap;}
+   p.prediction {
+     line-height:70%;
+     margin-top:100px;
+     margin-right:50px;
+     }
+   </style>
 </head>
 
 <!DOCTYPE html>
@@ -32,7 +42,8 @@ d3.xml(url, function(xml) {
          d3.select(busLine).text("No busses running")
       }
       else{ 
-        d3.select(busLine).text(minutes)}
+        d3.select(busLine).text(minutes)
+      }
   });
 } 
 function refreshPredictions(){
@@ -44,8 +55,10 @@ refreshPredictions()
 window.setInterval(refreshPredictions,15000);
   </script>
   </p>
-  9:<p id="nine"></p>
-  9L:<p id="nineL"></p>
-  27:<p id="twentySeven"></p>
+  <div id="predictions">
+  <p class = "prediction">9: <span id="nine"></span id></p>
+  <p class = "prediction">9L: <span id="nineL"></span id></p>
+  <p class = "prediction">27: <span id="twentySeven"></span id></p>
+  </div>
 </body>
 </html>
