@@ -39,7 +39,7 @@ d3.xml(url, function(xml) {
      return d3.select(prediction).attr("minutes");
     });
       if (minutes.length===0){
-         d3.select(busLine).text("No busses running")
+         d3.select(busLine).text("None")
       }
       else{ 
         d3.select(busLine).text(minutes)
