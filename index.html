@@ -32,22 +32,23 @@ stopTitle(string)
   <p>
   <script>
 function fetchPredictions(url, busLine){
-d3.xml(url, function(xml) {
+  d3.xml(url, function(xml) {
     var minutes =  d3.select(xml).selectAll("prediction")[0].map(function(prediction){
-     return d3.select(prediction).attr("minutes");
-    });
+      return d3.select(prediction).attr("minutes");
+      });
       if (minutes.length===0){
-         d3.select(busLine).text("--")
+        d3.select(busLine).text("--")
       }
       else{ 
         d3.select(busLine).text(minutes)
       }
-  });
+    });
 } 
 function refreshPredictions(){
-fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9", "#nine")
-fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9L", "#nineL")  
-fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=13749&routeTag=27", "#twentySeven")}
+  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9", "#nine")
+  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9L", "#nineL")  
+  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=13749&routeTag=27", "#twentySeven")
+  }
 
 refreshPredictions()
 window.setInterval(refreshPredictions,15000);
