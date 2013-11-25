@@ -9,8 +9,8 @@ First, this is the format the API uses:
 http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=<stop id>&routeTag=<route tag>
 
 You only need to change two things in my code to make it your own: the routeTag and the stopId. 
-To find this information for your preferred bus lines, use these two links:
 
+To find this information for your preferred bus lines, use these two links:
 MUNI routeTag list: webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=sf-muni
 stop id: transit.511.org/schedules/realtimedepartures.aspx#onlystopid
 
