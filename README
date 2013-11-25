@@ -1,1 +1,19 @@
-Creating a one-stop shop for my favorite MUNI lines. 
+myMuni is a way to display multiple MUNI route arrival prediction times in one window, large enough and clear enough to see from across the room.
+
+The screen auto-refreshes every 15 seconds.
+
+With a couple minor tweaks, you too can have a personalized arrival prediction list.
+
+First, this is the format the API uses:
+http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=<stop id>&routeTag=<route tag>
+
+
+You only need to change two things in my code to make it your own: the routeTag and the stopId. To find this information for your preferred bus lines, use these two links:
+MUNI routeTag list: webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=sf-muni
+stop id: transit.511.org/schedules/realtimedepartures.aspx#onlystopid
+
+Further information:
+
+MUNI API Public XML information: http://www.nextbus.com/xmlFeedDocs/NextBusXMLFeed.pdf
+
+I based my use of D3 on this example: https://gist.github.com/lgrammel/2772585
