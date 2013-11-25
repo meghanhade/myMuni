@@ -1,17 +1,8 @@
-<!-- MUNI nextbus API information:
-  
-Format:
-http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=<agency_tag>&stopId=<stop id>&routeTag=<route tag>
+<!-- For reference, these are the routeTag and stopId numbers that I used. See the readme for links to sources for these numbers.
 
-agency tag: sf-muni
-stop id: (look up here: href="http://transit.511.org/schedules/realtimedepartures.aspx#onlystopid=16038)
-routeTitle(string)
-stopTitle(string)
-<direction> dirTag(string)
-
-9 stopId:16038
-9L stopId:16038
-27 stopId:13749 -->
+routeTag:9 stopId:16038
+routeTag:9L stopId:16038
+routeTag:27 stopId:13749 -->
 
 <head>
    <title>myMuni</title>
@@ -44,20 +35,26 @@ function fetchPredictions(url, busLine){
       }
     });
 } 
+
+<!-- This is where you plug in your stopId and routeTag  -->
+
 function refreshPredictions(){
-  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9", "#nine")
-  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9L", "#nineL")  
-  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=13749&routeTag=27", "#twentySeven")
+  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9", "#one")
+  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9L", "#two")  
+  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=13749&routeTag=27", "#three")
   }
 
 refreshPredictions()
 window.setInterval(refreshPredictions,15000);
   </script>
   </p>
+  
+  <!-- Correct the name of the routes here to match yours -->
+  
   <div id="predictions">
-  <p class = "prediction"><span style="color:FF00FF;font-weight:bold">9: </span><span id="nine"></span id></p>
-  <p class = "prediction"><span style="color:9966FF;font-weight:bold">9L: </span><span id="nineL"></span id></p>
-  <p class = "prediction"><span style="color:3366FF;font-weight:bold">27: </span><span id="twentySeven"></span id></p>
+  <p class = "prediction"><span style="color:FF00FF;font-weight:bold">9: </span><span id="one"></span id></p>
+  <p class = "prediction"><span style="color:9966FF;font-weight:bold">9L: </span><span id="two"></span id></p>
+  <p class = "prediction"><span style="color:3366FF;font-weight:bold">27: </span><span id="three"></span id></p>
   </div>
 </body>
 </html>
