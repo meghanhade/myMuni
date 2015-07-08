@@ -43,6 +43,7 @@ function refreshPredictions(){
   fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=14665&routeTag=12", "#one")
   fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=15543&routeTag=14", "#two")  
   fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=15540&routeTag=14R", "#three")
+  fetchPredictions("http://api.bart.gov/api/etd.aspx?cmd=etd&orig=CIVC&dir=s&key=MW9S-E7SL-26DU-VV8V", "#four")
   }
 
 refreshPredictions()
@@ -56,6 +57,7 @@ window.setInterval(refreshPredictions,15000);
   <p class = "prediction"><span style="color:FF00FF;font-weight:bold">12: </span><span id="one"></span id></p>
   <p class = "prediction"><span style="color:9966FF;font-weight:bold">14: </span><span id="two"></span id></p>
   <p class = "prediction"><span style="color:3366FF;font-weight:bold">14R: </span><span id="three"></span id></p>
+  <p class = "prediction"><span style="color:3366FF;font-weight:bold">BART: </span><span id="four"></span id></p>
   </div>
 </body>
 </html>
