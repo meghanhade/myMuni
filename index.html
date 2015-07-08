@@ -17,7 +17,6 @@ routeTag:27 stopId:13749 -->
    </style>
 </head>
 
-<!-- comment -->
 
 <!DOCTYPE html>
 <html>
@@ -41,9 +40,9 @@ function fetchPredictions(url, busLine){
 <!-- This is where you plug in your stopId and routeTag  -->
 
 function refreshPredictions(){
-  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9", "#one")
-  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=16038&routeTag=9L", "#two")  
-  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=13749&routeTag=27", "#three")
+  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=14665&routeTag=12", "#one")
+  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=15543&routeTag=14", "#two")  
+  fetchPredictions("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&stopId=15540&routeTag=14R", "#three")
   }
 
 refreshPredictions()
@@ -54,9 +53,9 @@ window.setInterval(refreshPredictions,15000);
   <!-- Correct the name of the routes here to match yours -->
   
   <div id="predictions">
-  <p class = "prediction"><span style="color:FF00FF;font-weight:bold">9: </span><span id="one"></span id></p>
-  <p class = "prediction"><span style="color:9966FF;font-weight:bold">9L: </span><span id="two"></span id></p>
-  <p class = "prediction"><span style="color:3366FF;font-weight:bold">27: </span><span id="three"></span id></p>
+  <p class = "prediction"><span style="color:FF00FF;font-weight:bold">12: </span><span id="one"></span id></p>
+  <p class = "prediction"><span style="color:9966FF;font-weight:bold">14: </span><span id="two"></span id></p>
+  <p class = "prediction"><span style="color:3366FF;font-weight:bold">14R: </span><span id="three"></span id></p>
   </div>
 </body>
 </html>
